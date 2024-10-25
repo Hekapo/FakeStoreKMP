@@ -36,9 +36,7 @@ kotlin {
                 api(foundation)
                 api(material3)
                 api(materialIconsExtended)
-                api(compose.components.uiToolingPreview)
-//                api(compose.preview)
-//                api(compose.uiTooling)
+                api(components.uiToolingPreview)
 
             }
 
@@ -65,6 +63,7 @@ kotlin {
 
             // Coil
             api(libs.coil)
+            api(libs.coil.compose)
         }
 
         androidMain.dependencies {

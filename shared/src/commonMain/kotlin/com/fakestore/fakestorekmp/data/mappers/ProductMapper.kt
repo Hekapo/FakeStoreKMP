@@ -2,6 +2,7 @@ package com.fakestore.fakestorekmp.data.mappers
 
 import com.fakestore.fakestorekmp.data.response.ProductResponse
 import com.fakestore.fakestorekmp.domain.models.ProductModel
+import com.fakestore.fakestorekmp.domain.models.RatingModel
 
 class ProductMapper {
     fun map(response: ProductResponse): ProductModel {
@@ -13,6 +14,10 @@ class ProductMapper {
                 category = category,
                 description = description,
                 image = image,
+                rating = RatingModel(
+                    rate = response.rating?.rate,
+                    count = response.rating?.count,
+                )
             )
         }
     }

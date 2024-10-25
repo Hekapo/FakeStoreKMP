@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-class   ProductListStoreFactory(
+internal class ProductListStoreFactory(
     private val storeFactory: StoreFactory,
 ) : KoinComponent {
 
@@ -53,6 +53,11 @@ class   ProductListStoreFactory(
                         dispatch(Message.ProductListFailed(it.message))
                     }
             }
+        }
+
+        override fun dispose() {
+            getProductListJob?.cancel()
+            super.dispose()
         }
     }
 

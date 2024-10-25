@@ -16,9 +16,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        initKoin(
-//            enableNetworkLogs = BuildConfig.DEBUG
-        ) {
+        initKoin(enableNetworkLogs = BuildConfig.DEBUG) {
             androidContext(applicationContext)
         }
 

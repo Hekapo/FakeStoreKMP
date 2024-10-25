@@ -11,13 +11,13 @@ import kotlinx.coroutines.flow.StateFlow
 interface ProductListComponent {
     val state: StateFlow<ProductListStore.State>
 
-    val onProductSelected: (Int) -> Unit
+    fun onProductSelected(id: Int)
 }
 
-class ProductListComponentImpl(
+internal class ProductListComponentImpl(
     componentContext: ComponentContext,
     storeFactory: StoreFactory,
-    override val onProductSelected: (Int) -> Unit,
+    private val onProductSelected: (Int) -> Unit,
 ) : ProductListComponent, ComponentContext by componentContext {
 
     private val productsStore =
@@ -28,4 +28,6 @@ class ProductListComponentImpl(
         }
 
     override val state: StateFlow<ProductListStore.State> = productsStore.stateFlow
+
+    override fun onProductSelected(id: Int) = onProductSelected.invoke(id)
 }

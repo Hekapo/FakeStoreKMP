@@ -47,7 +47,7 @@ class RootNavigationComponentImpl(
                 component = ProductListComponentImpl(
                     componentContext = componentContext,
                     storeFactory = storeFactory,
-                    onProductSelected = { navigation.push(ScreenConfig.ProductDetails(it)) }
+                    onProductSelected = { navigation.push(ScreenConfig.ProductDetails(it)) },
                 )
             )
 
